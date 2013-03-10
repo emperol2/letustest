@@ -7,11 +7,11 @@ class User < ActiveRecord::Base
   :recoverable, :rememberable, :trackable, :validatable
 
   # Add nested attributes to projects        
-  has_one :project, :class_name => 'Project', :foreign_key => 'id'
+  has_one :project, :class_name => 'Project', :foreign_key => 'user_id'
   accepts_nested_attributes_for :project
   # attr_accessor :project_attributes
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :project_attributes
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :project_attributes, :user_id
   validates_presence_of :username
   # attr_accessible :title, :body
 

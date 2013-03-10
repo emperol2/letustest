@@ -1,5 +1,11 @@
 <h2>Sign up</h2>
 
+<% resource.build_project if resource.project.nil? %>
+
+<%= resource.build_project %> <br />
+<%= resource.project.nil? %> <br />
+<br />
+
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
@@ -15,14 +21,14 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
-  <%= f.fields_for :projects_attributes do |project_form| %>
-    <p><%= project_form.label :project_name %></p>
+  <%= f.fields_for :project do |project_form| %>
+    <p><%= project_form.label :name %></p>
     <p><%= project_form.text_field :name %></p>
 
-	<p><%= project_form.label :project_url %></p>
+	<p><%= project_form.label :url %></p>
     <p><%= project_form.text_field :url %></p>
 
-	<p><%= project_form.label :project_info %></p>
+	<p><%= project_form.label :info %></p>
     <p><%= project_form.text_area :info, :rows => 6, :maxlength => 200 %></p>
 
   <% end %>

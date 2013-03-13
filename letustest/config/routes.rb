@@ -1,5 +1,11 @@
 Letustest::Application.routes.draw do
-  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
+  #resources :users
+
+  #devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
+  
+  devise_for :users, :controllers => {:registrations => "users"}
+  #resources :users, :only => [:show]
+  match 'users/:id' => 'users#show'
 
   #devise_for :request_quotes
 

@@ -43,3 +43,5 @@ gem 'jquery-rails'
 gem "devise", ">= 2.0.4"
 gem "nifty-generators", :group => :development
 
+
+gem "mocha", :group => :test
